@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Temprature Converter</title>
+   <style>
+      *
+      {
+         padding: 0;
+         margin: 0;
+         font-family:Arial, Helvetica, sans-serif;
+      }
+      .container
+      {
+         position: absolute;
+         padding: 15px 20px;
+         margin: 10px;
+         color: aliceblue;
+         background-color: darkgreen;
+         height: 400px;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%,-50%);
+      }
+      .input-div1
+      {
+         width: 100%;
+      }
+      .temp-text
+      {
+         font-size: 40px;
+         text-align: center;
+         padding-bottom: 30px;
+      }
+      .input-label
+      {
+         font-size: 40px;
+      }
+      .inp
+      {
+         width: 12rem;
+         height: 2rem;
+         font-size: 1.5rem;
+         margin-top: 5px;
+      }
+      #cel
+      {
+         margin-bottom: 30px;
+      }
+      @media (min-width:240px)
+      {
+         .temp-text
+         {
+            font-size: 30px;
+            padding-top: 70px;
+         }
+      }
+      @media (min-width:768px)
+      {
+         .container
+         {
+            width: 500px;
+         }
+         .section
+         {
+            display: flex;
+            width: 80%;
+            text-align: center;
+            padding-left: 40px;
+            gap: 40px;
+         }
+         .temp-text
+         {
+            padding-bottom: 100px;
+         }
+      }
+      @media (min-width: 1020px) 
+      {
+         .temp-text
+         {
+            font-size: 50px;
+         }
+      }
+      
+
+   </style>
+</head>
+<body>
+   <div class="container">
+      <div class="main-text">
+         <h1 class="temp-text">Tempaerature Converter</h1>
+      </div>
+      <div class="section">
+      <div class="input-div1">
+         <label class="input-label">Celsius</label><br>
+         <input type="number" value="0" id="cel" class="inp">
+      </div>
+      <div class="input-div2">
+         <label class="input-label">Fahrenheit</label><br>
+         <input type="number" value="32" id="fah" class="inp">
+      </div>
+   </div>
+   </div>
+  
+
+
+   <script>
+      var cel=document.getElementById('cel');
+      var fah=document.getElementById('fah');
+      cel.addEventListener('input',function(){
+         let c=this.value;
+         let f=(c * 9/5) + 32;
+         if(!Number.isInteger(f))
+         {
+            f=f.toFixed(4);
+         }
+         fah.value=f;
+      });
+      fah.addEventListener('input',function(){
+         let f=this.value;
+         let c=[(f-32)*5]/9.;
+         if(!Number.isInteger(c))
+         {
+            c=c.toFixed(4);
+         }
+         cel.value=c;
+      });
+
+   </script>
+</body>
+
+</html>
